@@ -46,9 +46,9 @@ python run.py \
 --model_type=roberta \
 --tokenizer_name=../models/codebert \
 --model_name_or_path=../models/codebert \
---do_train --train_data_file=../dataset/good-3/train.jsonl \
---eval_data_file=../dataset/good-3/valid.jsonl \
---test_data_file=../dataset/good-3/test.jsonl \
+--do_train --train_data_file=../dataset/train.jsonl \
+--eval_data_file=../dataset/valid.jsonl \
+--test_data_file=../dataset/test.jsonl \
 --epoch 8 \
 --block_size 400 \
 --train_batch_size 12 \
