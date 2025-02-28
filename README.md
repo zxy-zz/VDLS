@@ -41,7 +41,25 @@ We used the joern tool to generate the CFG corresponding to the code.So if using
 
 #### Running the model
 ```shell
-python run.py --output_dir=./saved_models --model_type=roberta --tokenizer_name=../models/codebert --model_name_or_path=../models/codebert --do_train --train_data_file=../dataset/good-3/train.jsonl --eval_data_file=../dataset/good-3/valid.jsonl --test_data_file=../dataset/good-3/test.jsonl --epoch 8 --block_size 400 --train_batch_size 12 --eval_batch_size 12 --learning_rate 2e-5 --max_grad_norm 1.0 --evaluate_during_training --seed 123456 --cnn_size 128 --filter_size 4 --d_size 128
+python run.py \
+--output_dir=./saved_models \
+--model_type=roberta \
+--tokenizer_name=../models/codebert \
+--model_name_or_path=../models/codebert \
+--do_train --train_data_file=../dataset/good-3/train.jsonl \
+--eval_data_file=../dataset/good-3/valid.jsonl \
+--test_data_file=../dataset/good-3/test.jsonl \
+--epoch 8 \
+--block_size 400 \
+--train_batch_size 12 \
+--eval_batch_size 12 \
+--learning_rate 2e-5 \
+--max_grad_norm 1.0 \
+--evaluate_during_training \
+--seed 123456 \
+--cnn_size 128 \
+--filter_size 4 \
+--d_size 128
 
 ```
 
