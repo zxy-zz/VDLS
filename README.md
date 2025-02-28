@@ -41,30 +41,8 @@ We used the joern tool to generate the CFG corresponding to the code.So if using
 
 #### Running the model
 ```shell
-
+python run.py --output_dir=./saved_models --model_type=roberta --tokenizer_name=../models/codebert --model_name_or_path=../models/codebert --do_train --train_data_file=../dataset/good-3/train.jsonl --eval_data_file=../dataset/good-3/valid.jsonl --test_data_file=../dataset/good-3/test.jsonl --epoch 8 --block_size 400 --train_batch_size 12 --eval_batch_size 12 --learning_rate 2e-5 --max_grad_norm 1.0 --evaluate_during_training --seed 123456 --cnn_size 128 --filter_size 4 --d_size 128
 
 ```
-
-
-After parsing the functions with joern, the code for graph construction and simplification is under the ```data_processing\``` folder. ```data_processing\word2vec.py``` is used to train word2vec model. We also provide our trained word2vec model [here](https://zenodo.org/record/7333062#.Y3c5SHZByUk).
-
-## Running the model
-The model implementation code is under the ``` AMPLE_code\``` folder. The model can be runned from ```AMPLE_code\main.py```.
-
-## Attention weight
-We provide all the attention weights learned by our proposed model AMPLE for the test samples. Each dataset corresponds to a json file under ```attention weight\``` folder.
-
-## Experiment results
-### PR-AUC & MCC && G-measure && T-test
-<center>Table 1. Experiment results for Reveal and AMPLE. "*" denotes sttistical significance in comparision to Reveal in terms of accuracy and F1 score (i.e., two-sided t-test with p-value < 0.05).</center>
-
-## References
-[1] Jiahao Fan, Yi Li, Shaohua Wang, and Tien Nguyen. 2020. A C/C++ Code Vulnerability Dataset with Code Changes and CVE Summaries. In The 2020 International Conference on Mining Software Repositories (MSR). IEEE.
-
-[2] Saikat Chakraborty, Rahul Krishna, Yangruibo Ding, and Baishakhi Ray. 2020. Deep Learning based Vulnerability Detection: Are We There Yet? arXiv preprint arXiv:2009.07235 (2020).
-
-[3] Yaqin Zhou, Shangqing Liu, Jingkai Siow, Xiaoning Du, and Yang Liu. 2019. Devign: Effective vulnerability identification by learning comprehensive program semantics via graph neural networks. In Advances in Neural Information Processing Systems. 10197–10207.
-
-[4] M. Fu and C. Tantithamthavorn. 2022. Linevul: A transformer-based line-level vulnerability prediction. In The 2022 International Conference on Mining Software Repositories (MSR). IEEE.
 
 
