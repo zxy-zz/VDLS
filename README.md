@@ -25,15 +25,16 @@ We used the joern tool to generate the CFG corresponding to the code.So if using
 #### Path generation
 * Step 1: We first run ```joern_graph_gen.py``` to generate a CFG diagram of the corresponding code.
      first generate .bin files
-  ```
+     ```
      python joern_graph_gen.py  -i ./data/sard/Vul -o ./data/sard/bins/Vul -t parse
      python joern_graph_gen.py  -i ./data/sard/No-Vul -o ./data/sard/bins/No-Vul -t parse
-  ```
+     ```
+     
      then generate pdgs (.dot files)
-      ```
+     ```
      python joern_graph_gen.py  -i ./data/sard/bins/Vul -o ./data/sard/cfgs/Vul -t export -r cfg
      python joern_graph_gen.py  -i ./data/sard/bins/No-Vul -o ./data/sard/cfgs/No-Vul -t export -r cfg
-    ```
+     ```
 * Step 2: Next, run ```path_gen.py``` to extract the relevant execution path of CFG for the corresponding code.
 * Step 3: Use ```data_split.py``` for data set partitioning operations.
 
