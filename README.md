@@ -24,6 +24,7 @@ We used the joern tool to generate the CFG corresponding to the code.So if using
 ## Experimental process
 #### Path generation
 * Step 1: We first run ```joern_graph_gen.py``` to generate a CFG diagram of the corresponding code.
+  
      first generate .bin files
      ```
      python joern_graph_gen.py  -i ./data/sard/Vul -o ./data/sard/bins/Vul -t parse
