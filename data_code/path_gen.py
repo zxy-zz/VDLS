@@ -11,7 +11,7 @@ def load_dot_file(dot_file_path):
     print(dot_file_path)
     (graph,) = pydot.graph_from_dot_file(dot_file_path)
     if graph is None:
-        raise ValueError(f"无法加载DOT文件：{dot_file_path}")
+        raise ValueError(f"no dot：{dot_file_path}")
         return None
 
     nx_graph = nx.nx_pydot.from_pydot(graph)
@@ -131,12 +131,12 @@ def find_method_paths(dot_file_path):
     cfg_G.add_nodes_from(G.nodes())
     cfg_G.add_edges_from(cfg_edges)
 
-    keywords=['strcpy','wcscpy','strcat','wcscat','gets', # 字符串操作函数没有边界检查，容易导致缓冲区溢出。
-         'malloc','calloc','realloc','free',         # 内存分配或释放不当可能导致内存泄漏、双重释放或未初始化内存使用
-         'printf','fprintf','sprintf',                  # 格式化字符串函数未正确指定格式化参数，可能导致信息泄漏或代码注入
-         'fopen','freopen','fgets',                  # 文件操作时未正确检查文件路径、权限或返回值，可能导致文件遍历漏洞
-         'vsprintf','strncpy', 		#指针未初始化
-         'memcpy', 'memmove','memcmp', 'snprintf',  #参数长度错误
+    keywords=['strcpy','wcscpy','strcat','wcscat','gets', 
+         'malloc','calloc','realloc','free',         
+         'printf','fprintf','sprintf',                   
+         'fopen','freopen','fgets',                  
+         'vsprintf','strncpy', 	
+         'memcpy', 'memmove','memcmp', 'snprintf', 
          'alloca', 'strtol','atoi', '<<', '>>','>=','<=','/','-','+'
          'fopen', 'scanf', 'fgets', 'fread','fwrite','sizeof','NULL','assert']
     paths = get_three_high_score_paths(G, source, target, keywords)
