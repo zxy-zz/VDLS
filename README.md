@@ -1,7 +1,5 @@
 # VDLS: A Vulnerability Detection Approach Based on Execution Paths with Local Structures and Semantics
 
-## 项目简介
-
 ## Dtasets
 To investigate the effectiveness of VDLS, we adopt two vulnerability datasets from these paper:
 -[FFMPeg+Qemu [1]: https://drive.google.com/file/d/1x6hoF7G-tSYxg8AFybggypLZgMGDNHfF]
