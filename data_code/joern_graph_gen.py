@@ -18,15 +18,6 @@ def get_all_file(path):
             file_list.append(file)
     return file_list
 
-# first generate .bin files
-# python joern_graph_gen.py  -i ./data/sard/Vul -o ./data/sard/bins/Vul -t parse
-# python joern_graph_gen.py  -i ./data/sard/No-Vul -o ./data/sard/bins/No-Vul -t parse
-# # then generate pdgs (.dot files)
-# python joern_graph_gen.py  -i ./data/sard/bins/Vul -o ./data/sard/cfgs/Vul -t export -r cfg
-# python joern_graph_gen.py  -i ./data/sard/bins/No-Vul -o ./data/sard/cfgs/No-Vul -t export -r cfg
-# python joern_graph_gen.py  -i ./data/sard/bins/Vul -o ./data/sard/ddgs/Vul -t export -r ddg
-# python joern_graph_gen.py  -i ./data/sard/bins/No-Vul -o ./data/sard/ddgs/No-Vul -t export -r ddg
-
 def parse_options():
     parser = argparse.ArgumentParser(description='Extracting Cpgs.')
     parser.add_argument('-i', '--input', help='The dir path of input', type=str, default='./novul_bin')  ]
@@ -109,7 +100,7 @@ def joern_export(bin, outdir, repr):
             pass
     elif repr == 'pdg':
         os.system(
-            'sh joern-export $bin' + " --repr " + "pdg" + ' --out $out')  # 类似于画pdg图 ./joern-export cpg.bin --repr pdg --out oudir
+            'sh joern-export $bin' + " --repr " + "pdg" + ' --out $out')  #  ./joern-export cpg.bin --repr pdg --out oudir
         try:
             cfg_list = os.listdir(out) 
             for cfg in cfg_list:
@@ -122,7 +113,7 @@ def joern_export(bin, outdir, repr):
             pass
     elif repr == 'ddg':
         os.system(
-            'sh joern-export $bin' + " --repr " + "ddg" + ' --out $out')  # 类似于画pdg图 ./joern-export cpg.bin --repr pdg --out oudir
+            'sh joern-export $bin' + " --repr " + "ddg" + ' --out $out')  #  ./joern-export cpg.bin --repr pdg --out oudir
         try:
 
             ddg_list = os.listdir(out)  
@@ -200,7 +191,7 @@ def main():
     else:
         print('Type error!')
     end = time.time()
-    print(f"程序运行时间：{end - start} 秒")
+    print(f"time：{end - start} 秒")
 
 
 
